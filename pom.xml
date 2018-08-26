@@ -414,7 +414,7 @@
 
     <distributionManagement>
         <repository>
-            <id>onyx-superpom</id>
+            <id>bintray-onyx-superpom</id>
             <name>bintray-llaith-onyx-superpom</name>
             <url>https://api.bintray.com/maven/llaith/onyx/onyx-superpom/;publish=1</url>
         </repository>
