@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>org.llaith.onyx</groupId>
+    <artifactId>onyx-logging-pom</artifactId>
+    <version>1.0</version>
+    <packaging>pom</packaging>
+
+    <!-- logging properties - brought in via mixin plugins -->
+    <properties>
+        <version.slf4j>1.7.25</version.slf4j>
+        <version.commons-logging>1.2</version.commons-logging>
+    </properties>
+
+    <!-- dependency management - brought in BOM import -->
+    <dependencyManagement>
+        <dependencies>
+            <!-- disable this loggers -->
+            <dependency>
+                <groupId>commons-logging</groupId>
+                <artifactId>commons-logging</artifactId>
+                <version>${version.commons-logging}</version>
+            </dependency>
+
+            <!-- add abstract slf loggers -->
+            <dependency>
+                <groupId>org.slf4j</groupId>
+                <artifactId>slf4j-api</artifactId>
+                <version>${version.slf4j}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.slf4j</groupId>
+                <artifactId>log4j-over-slf4j</artifactId>
+                <version>${version.slf4j}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.slf4j</groupId>
+                <artifactId>jcl-over-slf4j</artifactId>
+                <version>${version.slf4j}</version>
+            </dependency>
+
+            <!-- TOP LEVEL PROJECTS USE THIS -->
+            <!-- standardising logging is so painful (glassfish,intellij,etc) I changed my mind, went with jul (yuck), and moved it here -->
+            <!-- ADD JVM PROPERTY -Djava.util.logging.SimpleFormatter.format="%1$tY-%1$tm-%1$td %1$tH:%1$tM:%1$tS %4$s %2$s %5$s%6$s%n" -->
+            <dependency>
+                <groupId>org.slf4j</groupId>
+                <artifactId>slf4j-jdk14</artifactId>
+                <version>${version.slf4j}</version>
+            </dependency>
+
+        </dependencies>
+
+    </dependencyManagement>
+
+    <dependencies>
+
+        <!-- exclude commons logging fully NO MATTER WHAT -->
+        <dependency>
+            <groupId>commons-logging</groupId>
+            <artifactId>commons-logging</artifactId>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>jcl-over-slf4j</artifactId>
+            <scope>compile</scope>
+        </dependency>
+
+    </dependencies>
+
+</project>

@@ -1,2 +1,2 @@
-# onyx-superpom
-Superpom for the Onyx project
+# onyx-maven
+Maven poms for the Onyx project

@@ -156,7 +156,7 @@
     <build>
 
         <defaultGoal>clean package</defaultGoal>
-        
+
         <pluginManagement>
             <plugins>
                 <plugin>
@@ -288,7 +288,7 @@
                                     </message>
                                 </bannedPlugins>
                                 <requireMavenVersion>
-                                    <version>3.3.3</version>
+                                    <version>3.6.0</version>
                                 </requireMavenVersion>
                                 <requireJavaVersion>
                                     <version>1.8</version>
