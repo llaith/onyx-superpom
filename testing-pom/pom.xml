@@ -84,8 +84,6 @@
 
     <build>
 
-        <defaultGoal>clean package</defaultGoal>
-
         <pluginManagement>
             <plugins>
                 <plugin>
